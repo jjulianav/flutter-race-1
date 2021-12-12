@@ -33,16 +33,16 @@ class AppBottomNavigator extends StatelessWidget {
             IconBottomNavigator(
               icon: Icons.add,
               onTap: () {
-                onChanged(1);
+                onChanged(3);
               },
-              enabled: currentIndex == 1,
+              enabled: false,
             ),
             IconBottomNavigator(
               icon: Icons.settings,
               onTap: () {
-                onChanged(2);
+                onChanged(1);
               },
-              enabled: currentIndex == 2,
+              enabled: currentIndex == 1,
             ),
           ],
         ),
@@ -68,7 +68,7 @@ class IconBottomNavigator extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 40,
+        width: 60,
         height: 40,
         child: Icon(
           icon,
