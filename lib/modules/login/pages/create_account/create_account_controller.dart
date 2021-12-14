@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:meuapp/modules/login/repositories/login_repository.dart';
 import 'package:meuapp/shared/models/user_model.dart';
-import 'package:meuapp/shared/services/app_database.dart';
 import 'package:meuapp/shared/utils/app_state.dart';
 
 class CreateAccountController extends ChangeNotifier {

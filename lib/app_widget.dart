@@ -17,14 +17,14 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Flutter Race #1",
       theme: ThemeData(primarySwatch: Colors.green),
-      initialRoute: "/home",
+      initialRoute: "/splash",
       routes: {
         "/splash": (context) => const SplashPage(),
         "/login": (context) => const LoginPage(),
         "/login/create-account": (context) => const CreateAccountPage(),
         "/home": (context) => HomePage(
               pages: [FeedPage(), ProfilePage()],
-              // user: ModalRoute.of(context)!.settings.arguments as UserModel,
+              user: ModalRoute.of(context)!.settings.arguments as UserModel,
             )
       },
     );

@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'package:meuapp/modules/create/repositories/create_repository.dart';
 import 'package:meuapp/shared/models/user_model.dart';
 import 'package:meuapp/shared/utils/app_state.dart';
 
 class CreateController extends ChangeNotifier {
+  final ICreateRepository repository;
   AppState state = AppState.empty();
 
   final formKey = GlobalKey<FormState>();
   String _name = "";
   String _price = "";
   String _date = "";
+  CreateController({
+    required this.repository,
+  });
 
   void onChange({String? name, String? price, String? date}) {
     _name = name ?? _name;
@@ -35,9 +40,15 @@ class CreateController extends ChangeNotifier {
     if (validate()) {
       try {
         update(AppState.loading());
-        // final response = await repository.createAccount(
-        //     name: _name, email: _email, password: _password);
-        // update(AppState.success<UserModel>(response));
+        final response =
+            await repository.create(date: _date, price: _price, name: _name);
+
+        if (response) {
+          update(AppState.success<bool>(response));
+          print("Produto Adicionado!!");
+        } else {
+          throw Exception("Não foi possivel cadastar");
+        }
       } catch (e) {
         update(AppState.error(e.toString()));
       }

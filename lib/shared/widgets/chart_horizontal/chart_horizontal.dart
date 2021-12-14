@@ -33,7 +33,7 @@ class ChartHorizontal extends StatelessWidget {
                       "${(percent * 100).ceil()}%",
                       style: AppTheme.textStyles.chart,
                     ),
-                  if ((1 - percent) > 1)
+                  if ((1 - percent) > 0)
                     Text(
                       "${((1 - percent) * 100).ceil()}%",
                       style: AppTheme.textStyles.chart,
